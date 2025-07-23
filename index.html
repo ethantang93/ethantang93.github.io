@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Tang - Test Static Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+        
+        .deployment-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+        
+        .test-info {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="deployment-status">
+        <i class="fas fa-check-circle me-2"></i>
+        Static HTML Deploy Test
+    </div>
+
+    <div class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h1 class="display-4 text-primary mb-4">
+                                <i class="fas fa-rocket me-3"></i>
+                                Static HTML Deployment Test
+                            </h1>
+                            
+                            <div class="test-info">
+                                <h5><i class="fas fa-info-circle me-2"></i>Test Information</h5>
+                                <p class="mb-2"><strong>Repository:</strong> ethantang93.github.io</p>
+                                <p class="mb-2"><strong>Deployment Type:</strong> Pure Static HTML (No Build Process)</p>
+                                <p class="mb-2"><strong>Generated:</strong> <span id="timestamp"></span></p>
+                                <p class="mb-0"><strong>Purpose:</strong> Validate GitHub Pages static deployment without Hugo/Actions complexity</p>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-lightning-bolt"></i>
+                                    </div>
+                                    <h5>Lightning Fast</h5>
+                                    <p class="text-muted">No build process = instant deployment</p>
+                                </div>
+                                
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h5>Rock Solid</h5>
+                                    <p class="text-muted">Zero dependencies = zero failures</p>
+                                </div>
+                                
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                    <h5>Simple Maintenance</h5>
+                                    <p class="text-muted">Edit HTML → git push → done</p>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card bg-success text-white">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                If you can see this page
+                                            </h6>
+                                            <p class="card-text mb-0">Static HTML deployment is working perfectly!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card bg-info text-white">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">
+                                                <i class="fas fa-clock me-2"></i>
+                                                Deployment Time
+                                            </h6>
+                                            <p class="card-text mb-0">Typically under 30 seconds</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5">
+                                <a href="https://github.com/ethantang93/ethantang93.github.io" class="btn btn-primary btn-lg me-3">
+                                    <i class="fab fa-github me-2"></i>View Source
+                                </a>
+                                <button class="btn btn-outline-secondary btn-lg" onclick="location.reload()">
+                                    <i class="fas fa-sync-alt me-2"></i>Refresh Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-white py-4">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-code me-2"></i>
+                Static HTML Test • Generated by Claude Code • 
+                <span id="year"></span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Display current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Simple page load analytics
+        console.log('📊 Static HTML Page Loaded Successfully!');
+        console.log('⚡ No build process required');
+        console.log('🚀 Ready for instant updates');
+    </script>
+</body>
+</html>
